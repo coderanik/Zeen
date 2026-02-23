@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA8888888888888888888801 /* ZeenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7777777777777777777702 /* ZeenApp.swift */; };
+		AA8888888888888888888802 /* DriftModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7777777777777777777703 /* DriftModels.swift */; };
+		AA8888888888888888888803 /* DriftScoringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7777777777777777777704 /* DriftScoringService.swift */; };
+		AA8888888888888888888804 /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7777777777777777777705 /* MockDataProvider.swift */; };
+		AA8888888888888888888805 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7777777777777777777706 /* DashboardViewModel.swift */; };
+		AA8888888888888888888806 /* ZeenTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7777777777777777777707 /* ZeenTheme.swift */; };
+		AA8888888888888888888807 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7777777777777777777708 /* RootTabView.swift */; };
+		AA8888888888888888888808 /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7777777777777777777709 /* GlassCard.swift */; };
+		AA8888888888888888888809 /* ScoreRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA777777777777777777770A /* ScoreRing.swift */; };
+		AA8888888888888888888810 /* TimelineBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA777777777777777777770B /* TimelineBar.swift */; };
+		AA8888888888888888888811 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA777777777777777777770C /* TodayView.swift */; };
+		AA8888888888888888888812 /* TimelineScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA777777777777777777770D /* TimelineScreen.swift */; };
+		AA8888888888888888888813 /* WeeklyInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA777777777777777777770E /* WeeklyInsightsView.swift */; };
+		AA8888888888888888888814 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA777777777777777777770F /* SettingsView.swift */; };
+		AA8888888888888888888815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA7777777777777777777710 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA7777777777777777777701 /* Zeen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zeen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7777777777777777777702 /* ZeenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeenApp.swift; sourceTree = "<group>"; };
+		AA7777777777777777777703 /* DriftModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftModels.swift; sourceTree = "<group>"; };
+		AA7777777777777777777704 /* DriftScoringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftScoringService.swift; sourceTree = "<group>"; };
+		AA7777777777777777777705 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
+		AA7777777777777777777706 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		AA7777777777777777777707 /* ZeenTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeenTheme.swift; sourceTree = "<group>"; };
+		AA7777777777777777777708 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		AA7777777777777777777709 /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCard.swift; sourceTree = "<group>"; };
+		AA777777777777777777770A /* ScoreRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRing.swift; sourceTree = "<group>"; };
+		AA777777777777777777770B /* TimelineBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineBar.swift; sourceTree = "<group>"; };
+		AA777777777777777777770C /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		AA777777777777777777770D /* TimelineScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineScreen.swift; sourceTree = "<group>"; };
+		AA777777777777777777770E /* WeeklyInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyInsightsView.swift; sourceTree = "<group>"; };
+		AA777777777777777777770F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AA7777777777777777777710 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA6666666666666666666602 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA3333333333333333333333 = {
+			isa = PBXGroup;
+			children = (
+				AA3333333333333333333335 /* Zeen */,
+				AA3333333333333333333334 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA3333333333333333333334 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA7777777777777777777701 /* Zeen.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA3333333333333333333335 /* Zeen */ = {
+			isa = PBXGroup;
+			children = (
+				AA7777777777777777777702 /* ZeenApp.swift */,
+				AA3333333333333333333336 /* Models */,
+				AA3333333333333333333337 /* Services */,
+				AA3333333333333333333338 /* ViewModels */,
+				AA3333333333333333333339 /* DesignSystem */,
+				AA333333333333333333333A /* Views */,
+				AA7777777777777777777710 /* Assets.xcassets */,
+			);
+			path = Zeen;
+			sourceTree = "<group>";
+		};
+		AA3333333333333333333336 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA7777777777777777777703 /* DriftModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA3333333333333333333337 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA7777777777777777777704 /* DriftScoringService.swift */,
+				AA7777777777777777777705 /* MockDataProvider.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AA3333333333333333333338 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AA7777777777777777777706 /* DashboardViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AA3333333333333333333339 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				AA7777777777777777777707 /* ZeenTheme.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		AA333333333333333333333A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA7777777777777777777708 /* RootTabView.swift */,
+				AA333333333333333333333B /* Components */,
+				AA333333333333333333333C /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA333333333333333333333B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AA7777777777777777777709 /* GlassCard.swift */,
+				AA777777777777777777770A /* ScoreRing.swift */,
+				AA777777777777777777770B /* TimelineBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AA333333333333333333333C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				AA777777777777777777770C /* TodayView.swift */,
+				AA777777777777777777770D /* TimelineScreen.swift */,
+				AA777777777777777777770E /* WeeklyInsightsView.swift */,
+				AA777777777777777777770F /* SettingsView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA2222222222222222222222 /* Zeen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA4444444444444444444442 /* Build configuration list for PBXNativeTarget "Zeen" */;
+			buildPhases = (
+				AA6666666666666666666601 /* Sources */,
+				AA6666666666666666666602 /* Frameworks */,
+				AA6666666666666666666603 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Zeen;
+			productName = Zeen;
+			productReference = AA7777777777777777777701 /* Zeen.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA1111111111111111111111 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					AA2222222222222222222222 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = AA4444444444444444444441 /* Build configuration list for PBXProject "Zeen" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA3333333333333333333333;
+			productRefGroup = AA3333333333333333333334 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA2222222222222222222222 /* Zeen */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA6666666666666666666603 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA8888888888888888888815 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA6666666666666666666601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA8888888888888888888801 /* ZeenApp.swift in Sources */,
+				AA8888888888888888888802 /* DriftModels.swift in Sources */,
+				AA8888888888888888888803 /* DriftScoringService.swift in Sources */,
+				AA8888888888888888888804 /* MockDataProvider.swift in Sources */,
+				AA8888888888888888888805 /* DashboardViewModel.swift in Sources */,
+				AA8888888888888888888806 /* ZeenTheme.swift in Sources */,
+				AA8888888888888888888807 /* RootTabView.swift in Sources */,
+				AA8888888888888888888808 /* GlassCard.swift in Sources */,
+				AA8888888888888888888809 /* ScoreRing.swift in Sources */,
+				AA8888888888888888888810 /* TimelineBar.swift in Sources */,
+				AA8888888888888888888811 /* TodayView.swift in Sources */,
+				AA8888888888888888888812 /* TimelineScreen.swift in Sources */,
+				AA8888888888888888888813 /* WeeklyInsightsView.swift in Sources */,
+				AA8888888888888888888814 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA5555555555555555555501 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA5555555555555555555502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		AA5555555555555555555503 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z2MD8HNCDK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Zeen;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anik.zeen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA5555555555555555555504 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z2MD8HNCDK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Zeen;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anik.zeen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA4444444444444444444441 /* Build configuration list for PBXProject "Zeen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA5555555555555555555501 /* Debug */,
+				AA5555555555555555555502 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA4444444444444444444442 /* Build configuration list for PBXNativeTarget "Zeen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA5555555555555555555503 /* Debug */,
+				AA5555555555555555555504 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA1111111111111111111111 /* Project object */;
+}
