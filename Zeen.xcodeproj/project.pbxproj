@@ -22,6 +22,21 @@
 		AA8888888888888888888813 /* WeeklyInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA777777777777777777770E /* WeeklyInsightsView.swift */; };
 		AA8888888888888888888814 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA777777777777777777770F /* SettingsView.swift */; };
 		AA8888888888888888888815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA7777777777777777777710 /* Assets.xcassets */; };
+		BB8888888888888888888801 /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7777777777777777777701 /* UserModels.swift */; };
+		BB8888888888888888888802 /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7777777777777777777702 /* SessionViewModel.swift */; };
+		BB8888888888888888888803 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7777777777777777777703 /* AppRootView.swift */; };
+		BB8888888888888888888804 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7777777777777777777704 /* SplashView.swift */; };
+		BB8888888888888888888805 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7777777777777777777705 /* AuthView.swift */; };
+		BB8888888888888888888806 /* StatCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7777777777777777777706 /* StatCard.swift */; };
+		BB8888888888888888888807 /* InsightBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7777777777777777777707 /* InsightBanner.swift */; };
+		BB8888888888888888888808 /* FactorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7777777777777777777708 /* FactorRow.swift */; };
+		BB8888888888888888888809 /* ZeenTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7777777777777777777709 /* ZeenTextField.swift */; };
+		BB888888888888888888880A /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB777777777777777777770A /* ProfileDetailView.swift */; };
+		CC8888888888888888888801 /* FocusSessionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7777777777777777777701 /* FocusSessionModels.swift */; };
+		CC8888888888888888888802 /* FocusSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7777777777777777777702 /* FocusSessionViewModel.swift */; };
+		CC8888888888888888888803 /* FocusSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7777777777777777777703 /* FocusSessionView.swift */; };
+		CC8888888888888888888804 /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7777777777777777777704 /* BreathingView.swift */; };
+		CC8888888888888888888805 /* ScoreShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7777777777777777777705 /* ScoreShareCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +56,21 @@
 		AA777777777777777777770E /* WeeklyInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyInsightsView.swift; sourceTree = "<group>"; };
 		AA777777777777777777770F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AA7777777777777777777710 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB7777777777777777777701 /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
+		BB7777777777777777777702 /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
+		BB7777777777777777777703 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		BB7777777777777777777704 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		BB7777777777777777777705 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		BB7777777777777777777706 /* StatCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCard.swift; sourceTree = "<group>"; };
+		BB7777777777777777777707 /* InsightBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightBanner.swift; sourceTree = "<group>"; };
+		BB7777777777777777777708 /* FactorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorRow.swift; sourceTree = "<group>"; };
+		BB7777777777777777777709 /* ZeenTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeenTextField.swift; sourceTree = "<group>"; };
+		BB777777777777777777770A /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
+		CC7777777777777777777701 /* FocusSessionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionModels.swift; sourceTree = "<group>"; };
+		CC7777777777777777777702 /* FocusSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionViewModel.swift; sourceTree = "<group>"; };
+		CC7777777777777777777703 /* FocusSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionView.swift; sourceTree = "<group>"; };
+		CC7777777777777777777704 /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
+		CC7777777777777777777705 /* ScoreShareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreShareCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				AA7777777777777777777703 /* DriftModels.swift */,
+				BB7777777777777777777701 /* UserModels.swift */,
+				CC7777777777777777777701 /* FocusSessionModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -105,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				AA7777777777777777777706 /* DashboardViewModel.swift */,
+				BB7777777777777777777702 /* SessionViewModel.swift */,
+				CC7777777777777777777702 /* FocusSessionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -121,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				AA7777777777777777777708 /* RootTabView.swift */,
+				BB7777777777777777777703 /* AppRootView.swift */,
 				AA333333333333333333333B /* Components */,
 				AA333333333333333333333C /* Screens */,
 			);
@@ -133,6 +168,11 @@
 				AA7777777777777777777709 /* GlassCard.swift */,
 				AA777777777777777777770A /* ScoreRing.swift */,
 				AA777777777777777777770B /* TimelineBar.swift */,
+				BB7777777777777777777706 /* StatCard.swift */,
+				BB7777777777777777777707 /* InsightBanner.swift */,
+				BB7777777777777777777708 /* FactorRow.swift */,
+				BB7777777777777777777709 /* ZeenTextField.swift */,
+				CC7777777777777777777705 /* ScoreShareCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -144,6 +184,11 @@
 				AA777777777777777777770D /* TimelineScreen.swift */,
 				AA777777777777777777770E /* WeeklyInsightsView.swift */,
 				AA777777777777777777770F /* SettingsView.swift */,
+				BB7777777777777777777704 /* SplashView.swift */,
+				BB7777777777777777777705 /* AuthView.swift */,
+				BB777777777777777777770A /* ProfileDetailView.swift */,
+				CC7777777777777777777703 /* FocusSessionView.swift */,
+				CC7777777777777777777704 /* BreathingView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -231,6 +276,21 @@
 				AA8888888888888888888812 /* TimelineScreen.swift in Sources */,
 				AA8888888888888888888813 /* WeeklyInsightsView.swift in Sources */,
 				AA8888888888888888888814 /* SettingsView.swift in Sources */,
+				BB8888888888888888888801 /* UserModels.swift in Sources */,
+				BB8888888888888888888802 /* SessionViewModel.swift in Sources */,
+				BB8888888888888888888803 /* AppRootView.swift in Sources */,
+				BB8888888888888888888804 /* SplashView.swift in Sources */,
+				BB8888888888888888888805 /* AuthView.swift in Sources */,
+				BB8888888888888888888806 /* StatCard.swift in Sources */,
+				BB8888888888888888888807 /* InsightBanner.swift in Sources */,
+				BB8888888888888888888808 /* FactorRow.swift in Sources */,
+				BB8888888888888888888809 /* ZeenTextField.swift in Sources */,
+				BB888888888888888888880A /* ProfileDetailView.swift in Sources */,
+				CC8888888888888888888801 /* FocusSessionModels.swift in Sources */,
+				CC8888888888888888888802 /* FocusSessionViewModel.swift in Sources */,
+				CC8888888888888888888803 /* FocusSessionView.swift in Sources */,
+				CC8888888888888888888804 /* BreathingView.swift in Sources */,
+				CC8888888888888888888805 /* ScoreShareCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

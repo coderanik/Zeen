@@ -11,6 +11,13 @@ struct RootTabView: View {
             }
 
             NavigationStack {
+                FocusSessionView()
+            }
+            .tabItem {
+                Label("Focus", systemImage: "timer")
+            }
+
+            NavigationStack {
                 TimelineScreen()
             }
             .tabItem {
@@ -31,6 +38,6 @@ struct RootTabView: View {
                 Label("Settings", systemImage: "slider.horizontal.3")
             }
         }
-        .tint(.white)
+        .tint(ZeenTheme.accentCyan)
     }
 }
