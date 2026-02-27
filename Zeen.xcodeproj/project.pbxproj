@@ -42,6 +42,7 @@
 		DD8888888888888888888803 /* DriftCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7777777777777777777703 /* DriftCalendarView.swift */; };
 		DD8888888888888888888804 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7777777777777777777704 /* AchievementsView.swift */; };
 		DD8888888888888888888805 /* ActivityViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7777777777777777777705 /* ActivityViewWrapper.swift */; };
+		EE8888888888888888888801 /* DriftScoringServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7777777777777777777701 /* DriftScoringServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		DD7777777777777777777703 /* DriftCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftCalendarView.swift; sourceTree = "<group>"; };
 		DD7777777777777777777704 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
 		DD7777777777777777777705 /* ActivityViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewWrapper.swift; sourceTree = "<group>"; };
+		EE7777777777777777777701 /* DriftScoringServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftScoringServiceTests.swift; sourceTree = "<group>"; };
+		EE7777777777777777777702 /* ZeenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZeenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +97,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE3333333333333333333301 /* ZeenTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE7777777777777777777701 /* DriftScoringServiceTests.swift */,
+			);
+			path = ZeenTests;
+			sourceTree = "<group>";
+		};
 		AA3333333333333333333333 = {
 			isa = PBXGroup;
 			children = (
 				AA3333333333333333333335 /* Zeen */,
+				EE3333333333333333333301 /* ZeenTests */,
 				AA3333333333333333333334 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				AA7777777777777777777701 /* Zeen.app */,
+				EE7777777777777777777702 /* ZeenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,7 +241,43 @@
 			productReference = AA7777777777777777777701 /* Zeen.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EE2222222222222222222222 /* ZeenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE4444444444444444444441 /* Build configuration list for PBXNativeTarget "ZeenTests" */;
+			buildPhases = (
+				EE6666666666666666666601 /* Sources */,
+				EE6666666666666666666602 /* Frameworks */,
+				EE6666666666666666666603 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE9999999999999999999901 /* PBXTargetDependency */,
+			);
+			name = ZeenTests;
+			productName = ZeenTests;
+			productReference = EE7777777777777777777702 /* ZeenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		EEAAAAAAAAAAAAAAAAAAAAAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA1111111111111111111111 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA2222222222222222222222;
+			remoteInfo = Zeen;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		EE9999999999999999999901 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA2222222222222222222222 /* Zeen */;
+			targetProxy = EEAAAAAAAAAAAAAAAAAAAAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXProject section */
 		AA1111111111111111111111 /* Project object */ = {
@@ -257,6 +306,7 @@
 			projectRoot = "";
 			targets = (
 				AA2222222222222222222222 /* Zeen */,
+				EE2222222222222222222222 /* ZeenTests */,
 			);
 		};
 /* End PBXProject section */
@@ -314,7 +364,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EE6666666666666666666601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE8888888888888888888801 /* DriftScoringServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXFrameworksBuildPhase section (Tests) */
+		EE6666666666666666666602 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section (Tests) */
+
+/* Begin PBXResourcesBuildPhase section (Tests) */
+		EE6666666666666666666603 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section (Tests) */
 
 /* Begin XCBuildConfiguration section */
 		AA5555555555555555555501 /* Debug */ = {
@@ -445,7 +523,55 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		EE4444444444444444444441 /* Build configuration list for PBXNativeTarget "ZeenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE5555555555555555555501 /* Debug */,
+				EE5555555555555555555502 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCBuildConfiguration section (Tests) */
+		EE5555555555555555555501 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z2MD8HNCDK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anik.zeen.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zeen.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Zeen";
+			};
+			name = Debug;
+		};
+		EE5555555555555555555502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z2MD8HNCDK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anik.zeen.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zeen.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Zeen";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section (Tests) */
 	};
 	rootObject = AA1111111111111111111111 /* Project object */;
 }
