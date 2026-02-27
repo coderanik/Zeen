@@ -5,6 +5,9 @@ struct WeeklyInsightsView: View {
     @EnvironmentObject private var viewModel: DashboardViewModel
     @EnvironmentObject private var session: SessionViewModel
 
+    @State private var showExportSheet = false
+    @State private var exportText = ""
+
     var body: some View {
         ZStack {
             GlassBackground()
@@ -143,6 +146,22 @@ struct WeeklyInsightsView: View {
                                 .padding(.top, 4)
                         }
                     }
+                    // Quick Actions
+                    HStack(spacing: 12) {
+                        NavigationLink {
+                            DriftCalendarView()
+                        } label: {
+                            actionCard(icon: "calendar", title: "30-Day Calendar", subtitle: "Drift heatmap", color: ZeenTheme.accentCyan)
+                        }
+                        .buttonStyle(.plain)
+
+                        NavigationLink {
+                            AchievementsView()
+                        } label: {
+                            actionCard(icon: "trophy.fill", title: "Achievements", subtitle: "\(Achievement.catalog.count) badges", color: .yellow)
+                        }
+                        .buttonStyle(.plain)
+                    }
                 }
                 .padding(20)
                 .padding(.top, 8)
@@ -150,6 +169,45 @@ struct WeeklyInsightsView: View {
             }
         }
         .navigationTitle("Weekly")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    exportText = MockDataProvider.exportReport(
+                        daily: viewModel.dailySummary,
+                        weekly: viewModel.weeklySummary,
+                        profile: session.profile?.name
+                    )
+                    showExportSheet = true
+                } label: {
+                    Image(systemName: "square.and.arrow.up")
+                        .font(.subheadline)
+                        .foregroundStyle(.white.opacity(0.85))
+                }
+            }
+        }
+        .sheet(isPresented: $showExportSheet) {
+            ActivityViewWrapper(items: [exportText])
+        }
+    }
+
+    private func actionCard(icon: String, title: String, subtitle: String, color: Color) -> some View {
+        GlassCard(delay: 0.35) {
+            VStack(spacing: 8) {
+                Image(systemName: icon)
+                    .font(.title2)
+                    .foregroundStyle(color)
+                    .frame(width: 40, height: 40)
+                    .background(color.opacity(0.12))
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                Text(title)
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.white.opacity(0.85))
+                Text(subtitle)
+                    .font(.caption2)
+                    .foregroundStyle(.white.opacity(0.40))
+            }
+            .frame(maxWidth: .infinity)
+        }
     }
 
     private var trendBadge: some View {

@@ -171,6 +171,40 @@ struct ProfileDetailView: View {
                         }
                     }
 
+                    // Achievements
+                    if !isEditing {
+                        NavigationLink {
+                            AchievementsView()
+                        } label: {
+                            GlassCard(delay: 0.16) {
+                                HStack(spacing: 14) {
+                                    Image(systemName: "trophy.fill")
+                                        .font(.title3)
+                                        .foregroundStyle(.yellow)
+                                        .frame(width: 36, height: 36)
+                                        .background(Color.yellow.opacity(0.12))
+                                        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text("Achievements")
+                                            .font(.subheadline.weight(.semibold))
+                                            .foregroundStyle(.white)
+                                        Text("\(Achievement.catalog.count) badges to unlock")
+                                            .font(.caption)
+                                            .foregroundStyle(.white.opacity(0.50))
+                                    }
+
+                                    Spacer()
+
+                                    Image(systemName: "chevron.right")
+                                        .font(.caption.weight(.semibold))
+                                        .foregroundStyle(.white.opacity(0.30))
+                                }
+                            }
+                        }
+                        .buttonStyle(.plain)
+                    }
+
                     // Danger zone
                     if !isEditing {
                         GlassCard(delay: 0.20) {

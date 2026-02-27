@@ -37,6 +37,11 @@
 		CC8888888888888888888803 /* FocusSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7777777777777777777703 /* FocusSessionView.swift */; };
 		CC8888888888888888888804 /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7777777777777777777704 /* BreathingView.swift */; };
 		CC8888888888888888888805 /* ScoreShareCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7777777777777777777705 /* ScoreShareCard.swift */; };
+		DD8888888888888888888801 /* AchievementModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7777777777777777777701 /* AchievementModels.swift */; };
+		DD8888888888888888888802 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7777777777777777777702 /* NotificationService.swift */; };
+		DD8888888888888888888803 /* DriftCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7777777777777777777703 /* DriftCalendarView.swift */; };
+		DD8888888888888888888804 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7777777777777777777704 /* AchievementsView.swift */; };
+		DD8888888888888888888805 /* ActivityViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7777777777777777777705 /* ActivityViewWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +76,11 @@
 		CC7777777777777777777703 /* FocusSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionView.swift; sourceTree = "<group>"; };
 		CC7777777777777777777704 /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 		CC7777777777777777777705 /* ScoreShareCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreShareCard.swift; sourceTree = "<group>"; };
+		DD7777777777777777777701 /* AchievementModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementModels.swift; sourceTree = "<group>"; };
+		DD7777777777777777777702 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		DD7777777777777777777703 /* DriftCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftCalendarView.swift; sourceTree = "<group>"; };
+		DD7777777777777777777704 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
+		DD7777777777777777777705 /* ActivityViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +130,7 @@
 				AA7777777777777777777703 /* DriftModels.swift */,
 				BB7777777777777777777701 /* UserModels.swift */,
 				CC7777777777777777777701 /* FocusSessionModels.swift */,
+				DD7777777777777777777701 /* AchievementModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -129,6 +140,7 @@
 			children = (
 				AA7777777777777777777704 /* DriftScoringService.swift */,
 				AA7777777777777777777705 /* MockDataProvider.swift */,
+				DD7777777777777777777702 /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -173,6 +185,7 @@
 				BB7777777777777777777708 /* FactorRow.swift */,
 				BB7777777777777777777709 /* ZeenTextField.swift */,
 				CC7777777777777777777705 /* ScoreShareCard.swift */,
+				DD7777777777777777777705 /* ActivityViewWrapper.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -189,6 +202,8 @@
 				BB777777777777777777770A /* ProfileDetailView.swift */,
 				CC7777777777777777777703 /* FocusSessionView.swift */,
 				CC7777777777777777777704 /* BreathingView.swift */,
+				DD7777777777777777777703 /* DriftCalendarView.swift */,
+				DD7777777777777777777704 /* AchievementsView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -291,6 +306,11 @@
 				CC8888888888888888888803 /* FocusSessionView.swift in Sources */,
 				CC8888888888888888888804 /* BreathingView.swift in Sources */,
 				CC8888888888888888888805 /* ScoreShareCard.swift in Sources */,
+				DD8888888888888888888801 /* AchievementModels.swift in Sources */,
+				DD8888888888888888888802 /* NotificationService.swift in Sources */,
+				DD8888888888888888888803 /* DriftCalendarView.swift in Sources */,
+				DD8888888888888888888804 /* AchievementsView.swift in Sources */,
+				DD8888888888888888888805 /* ActivityViewWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

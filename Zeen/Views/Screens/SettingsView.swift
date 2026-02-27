@@ -4,6 +4,9 @@ struct SettingsView: View {
     @EnvironmentObject private var viewModel: DashboardViewModel
     @EnvironmentObject private var session: SessionViewModel
 
+    @State private var morningReminder = false
+    @State private var eveningReminder = false
+
     var body: some View {
         ZStack {
             GlassBackground()
@@ -74,8 +77,69 @@ struct SettingsView: View {
                         }
                     }
 
+                    // MARK: - Notifications Section
+                    GlassCard(delay: 0.22) {
+                        VStack(spacing: 0) {
+                            settingSectionHeader(icon: "bell.fill", title: "Reminders", color: .yellow)
+                                .padding(.bottom, 10)
+
+                            Toggle(isOn: $morningReminder) {
+                                settingLabel(icon: "sunrise.fill", title: "Morning check-in")
+                            }
+                            .tint(.orange)
+                            .padding(.vertical, 4)
+                            .onChange(of: morningReminder) { _, on in
+                                if on {
+                                    Task {
+                                        let granted = await NotificationService.shared.requestPermission()
+                                        if granted {
+                                            NotificationService.shared.scheduleMorningReminder()
+                                        } else {
+                                            morningReminder = false
+                                        }
+                                    }
+                                } else {
+                                    NotificationService.shared.cancelMorning()
+                                }
+                            }
+
+                            Divider().background(Color.white.opacity(0.06)).padding(.leading, 40)
+
+                            Toggle(isOn: $eveningReminder) {
+                                settingLabel(icon: "moon.stars.fill", title: "Evening recap")
+                            }
+                            .tint(.indigo)
+                            .padding(.vertical, 4)
+                            .onChange(of: eveningReminder) { _, on in
+                                if on {
+                                    Task {
+                                        let granted = await NotificationService.shared.requestPermission()
+                                        if granted {
+                                            NotificationService.shared.scheduleEveningReminder()
+                                        } else {
+                                            eveningReminder = false
+                                        }
+                                    }
+                                } else {
+                                    NotificationService.shared.cancelEvening()
+                                }
+                            }
+
+                            HStack(spacing: 8) {
+                                Image(systemName: "info.circle")
+                                    .font(.caption)
+                                    .foregroundStyle(.white.opacity(0.35))
+                                Text("Morning at 8:30 AM · Evening at 8:00 PM")
+                                    .font(.caption2)
+                                    .foregroundStyle(.white.opacity(0.35))
+                            }
+                            .padding(.top, 10)
+                        }
+                        .foregroundStyle(.white)
+                    }
+
                     // MARK: - About Section
-                    GlassCard(delay: 0.26) {
+                    GlassCard(delay: 0.30) {
                         VStack(alignment: .leading, spacing: 0) {
                             settingSectionHeader(icon: "brain.head.profile", title: "About Zeen", color: ZeenTheme.accentMint)
                                 .padding(.bottom, 10)
