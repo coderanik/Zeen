@@ -34,6 +34,8 @@ struct StatCard: View {
                 .strokeBorder(color.opacity(0.18), lineWidth: 0.6)
         )
         .shadow(color: .black.opacity(0.18), radius: 10, x: 0, y: 6)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(value) \(label)")
         .opacity(appeared ? 1 : 0)
         .offset(y: appeared ? 0 : 14)
         .onAppear {

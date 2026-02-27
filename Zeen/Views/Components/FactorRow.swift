@@ -62,5 +62,7 @@ struct FactorRow: View {
             }
         }
         .padding(.vertical, 4)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(factor.title), contribution \(factor.contribution), observed \(factor.observed), weight \(Int(factor.weight * 100)) percent")
     }
 }

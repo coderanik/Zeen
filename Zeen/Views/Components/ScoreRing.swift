@@ -52,6 +52,9 @@ struct ScoreRing: View {
             }
         }
         .frame(width: 200, height: 200)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Drift score \(score), \(label)")
+        .accessibilityValue("\(score) out of 100")
         .shadow(color: ZeenTheme.driftColor(for: score).opacity(pulseGlow ? 0.40 : 0.15), radius: pulseGlow ? 32 : 14)
         .onAppear { animate() }
     }
