@@ -8,18 +8,14 @@ protocol ZeenDataProviding {
 
 struct MockDataProvider: ZeenDataProviding {
     func todayInput() -> DriftInput {
-        DriftInput(
-            appSwitches: 27,
-            shortSessions: 16,
-            notificationInterruptions: 21,
-            focusBreaks: 8
-        )
+        DriftInput(appSwitches: 27, shortSessions: 16, notificationInterruptions: 21, focusBreaks: 8)
     }
 
     func timelineForToday() -> [TimelinePoint] {
         [
-            .init(hour: 8, score: 18, interruptionCount: 2),
-            .init(hour: 9, score: 22, interruptionCount: 3),
+            .init(hour: 7,  score: 12, interruptionCount: 1),
+            .init(hour: 8,  score: 18, interruptionCount: 2),
+            .init(hour: 9,  score: 22, interruptionCount: 3),
             .init(hour: 10, score: 28, interruptionCount: 4),
             .init(hour: 11, score: 34, interruptionCount: 5),
             .init(hour: 12, score: 52, interruptionCount: 9),
@@ -29,14 +25,14 @@ struct MockDataProvider: ZeenDataProviding {
             .init(hour: 16, score: 43, interruptionCount: 4),
             .init(hour: 17, score: 39, interruptionCount: 3),
             .init(hour: 18, score: 36, interruptionCount: 4),
-            .init(hour: 19, score: 31, interruptionCount: 2)
+            .init(hour: 19, score: 31, interruptionCount: 2),
+            .init(hour: 20, score: 20, interruptionCount: 1),
+            .init(hour: 21, score: 14, interruptionCount: 0)
         ]
     }
 
     func weeklySummary() -> WeeklySummary {
-        let calendar = Calendar.current
-        let weekStart = calendar.date(byAdding: .day, value: -6, to: .now) ?? .now
-
+        let weekStart = Calendar.current.date(byAdding: .day, value: -6, to: .now) ?? .now
         return WeeklySummary(
             weekStart: weekStart,
             points: [
