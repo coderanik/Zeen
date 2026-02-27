@@ -124,11 +124,11 @@ struct AchievementsView: View {
     private var achievements: [Achievement] {
         var list = Achievement.catalog
 
-        // Check unlocks based on current state
+        // Check unlocks based on current + persisted state
         let weeklyAvg = viewModel.weeklySummary.averageScore
         let streak = viewModel.weeklySummary.currentCalmStreak(threshold: 40)
-        let focusSessions = focusVM.sessions.count
-        let completedSessions = focusVM.sessions.filter(\.completed).count
+        let completedSessions = max(focusVM.lifetimeCompletedSessions,
+                                     focusVM.sessions.filter(\.completed).count)
 
         // First calm
         if weeklyAvg < 30 || viewModel.dailySummary.score.value < 30 {
@@ -150,7 +150,7 @@ struct AchievementsView: View {
             }
         }
 
-        // Focus sessions
+        // Focus sessions (persisted)
         if completedSessions >= 1 {
             if let i = list.firstIndex(where: { $0.id == "focus_first" }) {
                 list[i].isUnlocked = true
@@ -158,6 +158,13 @@ struct AchievementsView: View {
         }
         if completedSessions >= 10 {
             if let i = list.firstIndex(where: { $0.id == "focus_10" }) {
+                list[i].isUnlocked = true
+            }
+        }
+
+        // Breathing (persisted)
+        if focusVM.hasCompletedBreathing {
+            if let i = list.firstIndex(where: { $0.id == "breathe" }) {
                 list[i].isUnlocked = true
             }
         }

@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 @MainActor
 final class FocusSessionViewModel: ObservableObject {
@@ -7,6 +8,11 @@ final class FocusSessionViewModel: ObservableObject {
     @Published var totalDuration: TimeInterval = 25 * 60
     @Published var remainingTime: TimeInterval = 25 * 60
     @Published private(set) var sessions: [FocusSessionRecord] = []
+
+    // Persisted counters for achievements
+    @AppStorage("lifetimeCompletedSessions") var lifetimeCompletedSessions: Int = 0
+    @AppStorage("lifetimeFocusMinutes") var lifetimeFocusMinutes: Int = 0
+    @AppStorage("hasCompletedBreathing") var hasCompletedBreathing: Bool = false
 
     private var timer: Timer?
 
@@ -98,6 +104,8 @@ final class FocusSessionViewModel: ObservableObject {
             type: selectedType, elapsed: totalDuration, target: totalDuration,
             completedAt: .now, completed: true
         ), at: 0)
+        lifetimeCompletedSessions += 1
+        lifetimeFocusMinutes += Int(totalDuration) / 60
         state = .idle
         remainingTime = totalDuration
     }

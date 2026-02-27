@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BreathingView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var focusVM: FocusSessionViewModel
 
     @State private var phase: BreathPhase = .ready
     @State private var circleScale: CGFloat = 0.35
@@ -148,6 +149,7 @@ struct BreathingView: View {
         guard cyclesCompleted < totalCycles else {
             withAnimation(.easeInOut(duration: 0.5)) { phase = .complete }
             UINotificationFeedbackGenerator().notificationOccurred(.success)
+            focusVM.hasCompletedBreathing = true
             return
         }
 
