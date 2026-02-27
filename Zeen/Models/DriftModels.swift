@@ -1,6 +1,8 @@
 import Foundation
 import SwiftUI
 
+// MARK: - Core Scoring Types
+
 struct DriftInput: Equatable {
     let appSwitches: Int
     let shortSessions: Int
@@ -16,61 +18,67 @@ struct DriftScore: Equatable {
     static let empty = DriftScore(value: 0, level: .calm, factors: [])
 
     var formattedValue: String { "\(value)" }
-    var accessibilityLabel: String { "Zeen score \(value), \(level.label)" }
+    var accessibilityLabel: String { "Drift score \(value), \(level.label)" }
 }
 
-enum DriftLevel: String, CaseIterable {
-    case calm
-    case mild
-    case high
-    case overloaded
+enum DriftLevel: String, CaseIterable, Equatable {
+    case calm, mild, high, overloaded
 
     var label: String {
         switch self {
-        case .calm: return "Calm"
-        case .mild: return "Mild Zeen"
-        case .high: return "High Zeen"
+        case .calm:       return "In Flow"
+        case .mild:       return "Mild Drift"
+        case .high:       return "High Drift"
         case .overloaded: return "Overloaded"
+        }
+    }
+
+    var description: String {
+        switch self {
+        case .calm:       return "Your attention is steady and protected."
+        case .mild:       return "Some scattering, but you're staying grounded."
+        case .high:       return "Frequent context switches are fragmenting your focus."
+        case .overloaded: return "Your cognitive bandwidth is stretched thin."
         }
     }
 
     var emoji: String {
         switch self {
-        case .calm: return "🧘‍♀️"
-        case .mild: return "🌤️"
-        case .high: return "🌪️"
-        case .overloaded: return "🚨"
+        case .calm:       return "🧘"
+        case .mild:       return "🌤"
+        case .high:       return "🌪️"
+        case .overloaded: return "🔥"
         }
     }
 
     var symbolName: String {
         switch self {
-        case .calm: return "leaf"
-        case .mild: return "wind"
-        case .high: return "tornado"
+        case .calm:       return "leaf"
+        case .mild:       return "wind"
+        case .high:       return "tornado"
         case .overloaded: return "exclamationmark.triangle.fill"
         }
     }
 
     var color: Color {
         switch self {
-        case .calm: return Color.green
-        case .mild: return Color.yellow
-        case .high: return Color.orange
-        case .overloaded: return Color.red
+        case .calm:       return Color(red: 0.35, green: 0.90, blue: 0.70)
+        case .mild:       return Color(red: 0.92, green: 0.82, blue: 0.30)
+        case .high:       return Color(red: 0.98, green: 0.58, blue: 0.32)
+        case .overloaded: return Color(red: 0.96, green: 0.36, blue: 0.40)
         }
     }
 
     var gradient: LinearGradient {
         switch self {
         case .calm:
-            return LinearGradient(colors: [Color.green.opacity(0.6), Color.teal], startPoint: .topLeading, endPoint: .bottomTrailing)
+            return LinearGradient(colors: [Color(red: 0.35, green: 0.90, blue: 0.70).opacity(0.7), Color.teal], startPoint: .topLeading, endPoint: .bottomTrailing)
         case .mild:
-            return LinearGradient(colors: [Color.yellow.opacity(0.7), Color.orange.opacity(0.6)], startPoint: .topLeading, endPoint: .bottomTrailing)
+            return LinearGradient(colors: [Color(red: 0.92, green: 0.82, blue: 0.30).opacity(0.8), Color.orange.opacity(0.6)], startPoint: .topLeading, endPoint: .bottomTrailing)
         case .high:
-            return LinearGradient(colors: [Color.orange, Color.red.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing)
+            return LinearGradient(colors: [Color.orange, Color(red: 0.96, green: 0.36, blue: 0.40).opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing)
         case .overloaded:
-            return LinearGradient(colors: [Color.red, Color.pink], startPoint: .topLeading, endPoint: .bottomTrailing)
+            return LinearGradient(colors: [Color(red: 0.96, green: 0.36, blue: 0.40), Color.pink], startPoint: .topLeading, endPoint: .bottomTrailing)
         }
     }
 }
@@ -83,6 +91,14 @@ struct DriftFactor: Identifiable, Equatable {
     let contribution: Int
 }
 
+struct ZeenPreferences: Equatable {
+    var analysisOnDeviceOnly: Bool = true
+    var useFocusIntegration: Bool = true
+    var useNotificationsSignal: Bool = true
+}
+
+// MARK: - Timeline & Weekly
+
 struct TimelinePoint: Identifiable, Equatable {
     let id = UUID()
     let hour: Int
@@ -90,21 +106,14 @@ struct TimelinePoint: Identifiable, Equatable {
     let interruptionCount: Int
 
     var hourLabel: String {
-        let normalized = hour % 24
-        if normalized == 0 { return "12a" }
-        if normalized < 12 { return "\(normalized)a" }
-        if normalized == 12 { return "12p" }
-        return "\(normalized - 12)p"
+        let n = hour % 24
+        if n == 0  { return "12a" }
+        if n < 12  { return "\(n)a" }
+        if n == 12 { return "12p" }
+        return "\(n - 12)p"
     }
 
-    var accentColor: Color {
-        switch score {
-        case ..<25: return .green
-        case 25..<50: return .yellow
-        case 50..<75: return .orange
-        default: return .red
-        }
-    }
+    var accentColor: Color { ZeenTheme.driftColor(for: score) }
 }
 
 struct WeeklyDriftPoint: Identifiable, Equatable {
@@ -124,6 +133,12 @@ struct DailySummary: Equatable {
     let date: Date
     let score: DriftScore
     let timeline: [TimelinePoint]
+
+    var calmHourCount: Int { timeline.filter { $0.score < 40 }.count }
+
+    var mostCalmHour: TimelinePoint? {
+        timeline.min(by: { $0.score < $1.score })
+    }
 }
 
 struct WeeklySummary: Equatable {
@@ -138,7 +153,75 @@ struct WeeklySummary: Equatable {
     var totalDeepFocusMinutes: Int {
         points.map(\.deepFocusMinutes).reduce(0, +)
     }
+
+    func calmDayCount(threshold: Int) -> Int {
+        points.filter { $0.score < threshold }.count
+    }
+
+    func currentCalmStreak(threshold: Int) -> Int {
+        guard !points.isEmpty else { return 0 }
+        let sorted = points.sorted { $0.dayIndex > $1.dayIndex }
+        var streak = 0
+        for point in sorted {
+            if point.score < threshold { streak += 1 } else { break }
+        }
+        return streak
+    }
 }
+
+// MARK: - Insights & Trends
+
+struct DriftInsight: Identifiable, Equatable {
+    let id = UUID()
+    let icon: String
+    let title: String
+    let body: String
+    let tone: InsightTone
+
+    enum InsightTone: String, Equatable {
+        case positive, neutral, warning, critical
+
+        var color: Color {
+            switch self {
+            case .positive: return Color(red: 0.35, green: 0.90, blue: 0.70)
+            case .neutral:  return Color(red: 0.20, green: 0.90, blue: 0.90)
+            case .warning:  return Color(red: 0.98, green: 0.58, blue: 0.32)
+            case .critical: return Color(red: 0.96, green: 0.36, blue: 0.40)
+            }
+        }
+    }
+}
+
+enum TrendDirection: String, Equatable {
+    case improving, stable, worsening
+
+    var label: String {
+        switch self {
+        case .improving: return "Improving"
+        case .stable:    return "Stable"
+        case .worsening: return "Worsening"
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .improving: return "arrow.down.right"
+        case .stable:    return "arrow.right"
+        case .worsening: return "arrow.up.right"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .improving: return Color(red: 0.35, green: 0.90, blue: 0.70)
+        case .stable:    return Color(red: 0.20, green: 0.90, blue: 0.90)
+        case .worsening: return Color(red: 0.96, green: 0.36, blue: 0.40)
+        }
+    }
+}
+
+// MARK: - Sample Data
+
 #if DEBUG
 extension DriftInput {
     static let sample = DriftInput(appSwitches: 12, shortSessions: 8, notificationInterruptions: 5, focusBreaks: 3)
@@ -152,17 +235,14 @@ extension DriftFactor {
 
 extension DriftScore {
     static let sampleCalm = DriftScore(
-        value: 18,
-        level: .calm,
+        value: 18, level: .calm,
         factors: [
             .sample(title: "Few Notifications", weight: 0.3, observed: 2, contribution: -5),
             .sample(title: "Long Sessions", weight: 0.4, observed: 5, contribution: -7)
         ]
     )
-
     static let sampleHigh = DriftScore(
-        value: 72,
-        level: .high,
+        value: 72, level: .high,
         factors: [
             .sample(title: "Many App Switches", weight: 0.5, observed: 30, contribution: 20),
             .sample(title: "Frequent Alerts", weight: 0.4, observed: 18, contribution: 15)
@@ -172,17 +252,13 @@ extension DriftScore {
 
 extension TimelinePoint {
     static let sample: [TimelinePoint] = (0..<24).map { hour in
-        let base = Int.random(in: 5...90)
-        let interruptions = Int.random(in: 0...6)
-        return TimelinePoint(hour: hour, score: base, interruptionCount: interruptions)
+        TimelinePoint(hour: hour, score: Int.random(in: 5...90), interruptionCount: Int.random(in: 0...6))
     }
 }
 
 extension WeeklyDriftPoint {
     static let sample: [WeeklyDriftPoint] = (0..<7).map { idx in
-        let score = Int.random(in: 10...90)
-        let deep = Int.random(in: 20...180)
-        return WeeklyDriftPoint(dayIndex: idx, score: score, deepFocusMinutes: deep)
+        WeeklyDriftPoint(dayIndex: idx, score: Int.random(in: 10...90), deepFocusMinutes: Int.random(in: 20...180))
     }
 }
 
@@ -194,4 +270,3 @@ extension WeeklySummary {
     static let sample = WeeklySummary(weekStart: .now, points: WeeklyDriftPoint.sample)
 }
 #endif
-
