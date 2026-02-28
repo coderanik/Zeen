@@ -17,6 +17,14 @@
 - Peak drift window identification
 - Contextual insights with tone-coded severity
 
+### 📡 Live Behavioral Tracking
+- **Real-time app switch detection** via `ScenePhase` lifecycle monitoring
+- **Short session tracking** — sessions under 2 minutes count as fragmented attention
+- **Notification interruption counting** via `UNUserNotificationCenter` delivered notifications
+- **Focus break detection** — leaving the app during a focus session registers as a break
+- All signals **persisted hourly and daily** to `UserDefaults` with automatic day rollover
+- No mock data — every metric is earned through real user behavior
+
 ### ⏱ Focus Session Timer
 - 4 session types: Deep Work (25m), Reading (20m), Creative (30m), Meditation (10m)
 - Animated timer ring with pulsing glow during active sessions
@@ -80,7 +88,7 @@ All achievement progress **persists** across app restarts via `@AppStorage`.
 
 ```
 Zeen/
-├── ZeenApp.swift                  # App entry, environment injection
+├── ZeenApp.swift                  # App entry, environment injection, ScenePhase tracking
 ├── Models/
 │   ├── DriftModels.swift          # DriftInput, DriftScore, DriftLevel, DriftFactor,
 │   │                                DailySummary, WeeklySummary, DriftInsight, TrendDirection
@@ -89,12 +97,15 @@ Zeen/
 │   └── AchievementModels.swift    # Achievement catalog, DailyRecord
 ├── Services/
 │   ├── DriftScoringService.swift  # Weighted factor scoring, insight generation, trend detection
-│   ├── MockDataProvider.swift     # Protocol + mock data, historical records, export report
+│   ├── ActivityTracker.swift      # Real-time behavioral signal tracking (app switches,
+│   │                                short sessions, notifications, focus breaks)
+│   ├── LiveDataProvider.swift     # ZeenDataProviding backed by real ActivityTracker data
+│   ├── MockDataProvider.swift     # Protocol + mock implementation for testing
 │   └── NotificationService.swift  # UNUserNotificationCenter wrapper
 ├── ViewModels/
 │   ├── DashboardViewModel.swift   # Daily/weekly state, insights, trends
 │   ├── SessionViewModel.swift     # User profile, auth, UserDefaults persistence
-│   └── FocusSessionViewModel.swift # Timer state machine, @AppStorage counters
+│   └── FocusSessionViewModel.swift # Timer state machine, @AppStorage counters, focus break tracking
 ├── DesignSystem/
 │   └── ZeenTheme.swift            # Accent palette, gradients, animations, GlassBackground
 ├── Views/
@@ -128,12 +139,28 @@ Zeen/
 
 ---
 
-## � Tech Stack & APIs Used
+## 🔬 How Live Tracking Works
+
+Zeen tracks **real behavioral signals** without requiring Screen Time or DeviceActivity entitlements:
+
+| Signal | How It's Measured | Storage |
+|--------|-------------------|---------|
+| **App Switches** | `ScenePhase` transitions (background → active) | Per-hour + daily counter |
+| **Short Sessions** | Sessions under 2 minutes before backgrounding | Per-hour + daily counter |
+| **Notification Interruptions** | `UNUserNotificationCenter.getDeliveredNotifications()` delta on foreground | Per-hour + daily counter |
+| **Focus Breaks** | Leaving the app while a focus timer is running | Per-hour + daily counter |
+
+Each signal is recorded per-hour for the **Timeline** chart and aggregated daily for the **Weekly** view and **Calendar** heatmap. The `DriftScoringService` applies weighted normalization (app switches 35%, short sessions 25%, notifications 25%, focus breaks 15%) to produce the final Drift Score.
+
+---
+
+## 🛠 Tech Stack & APIs Used
 
 | Category | Tech |
 |----------|------|
 | UI | SwiftUI, Charts framework |
 | Architecture | MVVM, `@StateObject`, `@EnvironmentObject` |
+| Behavioral Tracking | `ScenePhase`, `UNUserNotificationCenter` |
 | Persistence | `UserDefaults` (Codable), `@AppStorage` |
 | Sharing | `ImageRenderer` (iOS 16+), `UIActivityViewController` |
 | Notifications | `UNUserNotificationCenter`, `UNCalendarNotificationTrigger` |
@@ -149,9 +176,10 @@ Zeen/
 
 1. **Privacy-First** — All analysis happens on-device. No personal data leaves the phone.
 2. **Attention Quality > Screen Time** — We measure *how* you use your phone, not *how long*.
-3. **Glassmorphism + Dark Mode** — Premium visual identity with `.ultraThinMaterial` cards, animated backgrounds, and curated color palette.
-4. **Actionable** — Don't just show data. Offer focus sessions, breathing exercises, and shareable reports.
-5. **Accessible** — VoiceOver labels on all key components.
+3. **Real Data, Not Mock Data** — Every signal is earned through actual user behavior. The app starts at score 0 and builds up organically.
+4. **Glassmorphism + Dark Mode** — Premium visual identity with `.ultraThinMaterial` cards, animated backgrounds, and curated color palette.
+5. **Actionable** — Don't just show data. Offer focus sessions, breathing exercises, and shareable reports.
+6. **Accessible** — VoiceOver labels on all key components.
 
 ---
 
@@ -162,7 +190,7 @@ Zeen/
 3. `⌘R` to build and run
 4. Run tests with `⌘U`
 
-> **Note**: The prototype uses `MockDataProvider` for demonstration. In production, this would integrate with `FamilyControls` / `DeviceActivity` frameworks for real behavioral signals.
+> **Note**: Zeen uses live behavioral tracking via `ScenePhase` and `UNUserNotificationCenter`. The drift score starts at 0 and builds up as you use your phone — switch between apps, receive notifications, and take focus breaks to see the score respond in real time. A `MockDataProvider` is retained for unit testing.
 
 ---
 

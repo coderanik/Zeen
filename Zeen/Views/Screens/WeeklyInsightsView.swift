@@ -172,7 +172,7 @@ struct WeeklyInsightsView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    exportText = MockDataProvider.exportReport(
+                    exportText = LiveDataProvider.exportReport(
                         daily: viewModel.dailySummary,
                         weekly: viewModel.weeklySummary,
                         profile: session.profile?.name

@@ -211,7 +211,7 @@ struct DriftCalendarView: View {
     // MARK: - Data
 
     private var historicalData: [DailyRecord] {
-        MockDataProvider.historicalRecords(days: 30)
+        LiveDataProvider().historicalRecords(days: 30)
     }
 
     private var leadingEmptyCells: Int {

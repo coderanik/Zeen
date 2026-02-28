@@ -84,6 +84,14 @@ final class FocusSessionViewModel: ObservableObject {
         remainingTime = totalDuration
     }
 
+    /// Called when the app goes to background during a focus session.
+    /// This counts as a "focus break" — a real behavioral signal.
+    func handleAppBackgrounded() {
+        if state == .running {
+            ActivityTracker.shared.recordFocusBreak()
+        }
+    }
+
     private func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             Task { @MainActor in
