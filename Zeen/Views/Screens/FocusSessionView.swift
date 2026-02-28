@@ -5,6 +5,7 @@ struct FocusSessionView: View {
 
     @State private var pulsate = false
     @State private var completionBounce = false
+    @State private var customMinutes: Double = 15
 
     var body: some View {
         ZStack {
@@ -15,6 +16,11 @@ struct FocusSessionView: View {
                     // Type selector (idle only)
                     if vm.state == .idle {
                         typeSelector
+
+                        // Custom duration picker
+                        if vm.selectedType == .custom {
+                            customDurationPicker
+                        }
                     }
 
                     // Timer
@@ -87,6 +93,106 @@ struct FocusSessionView: View {
                                         lineWidth: 1
                                     )
                             )
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Custom Duration Picker
+
+    private var customDurationPicker: some View {
+        GlassCard(delay: 0.08) {
+            VStack(spacing: 16) {
+                Text("Set Duration")
+                    .font(.headline)
+                    .foregroundStyle(.white.opacity(0.96))
+
+                // Big minute display
+                HStack(spacing: 16) {
+                    Button {
+                        if customMinutes > 1 {
+                            customMinutes -= 1
+                            vm.setCustomDuration(minutes: Int(customMinutes))
+                        }
+                    } label: {
+                        Image(systemName: "minus.circle.fill")
+                            .font(.title2)
+                            .foregroundStyle(FocusSessionType.custom.color.opacity(customMinutes > 1 ? 1 : 0.3))
+                    }
+                    .disabled(customMinutes <= 1)
+
+                    VStack(spacing: 2) {
+                        Text("\(Int(customMinutes))")
+                            .font(.system(size: 42, weight: .bold, design: .rounded).monospacedDigit())
+                            .foregroundStyle(.white)
+                            .contentTransition(.numericText(value: customMinutes))
+                        Text("minutes")
+                            .font(.caption.weight(.medium))
+                            .foregroundStyle(.white.opacity(0.50))
+                    }
+                    .frame(minWidth: 80)
+
+                    Button {
+                        if customMinutes < 120 {
+                            customMinutes += 1
+                            vm.setCustomDuration(minutes: Int(customMinutes))
+                        }
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.title2)
+                            .foregroundStyle(FocusSessionType.custom.color.opacity(customMinutes < 120 ? 1 : 0.3))
+                    }
+                    .disabled(customMinutes >= 120)
+                }
+
+                // Slider
+                Slider(value: $customMinutes, in: 1...120, step: 1) {
+                    Text("Minutes")
+                } minimumValueLabel: {
+                    Text("1")
+                        .font(.caption2)
+                        .foregroundStyle(.white.opacity(0.40))
+                } maximumValueLabel: {
+                    Text("120")
+                        .font(.caption2)
+                        .foregroundStyle(.white.opacity(0.40))
+                }
+                .tint(FocusSessionType.custom.color)
+                .onChange(of: customMinutes) { _, newVal in
+                    vm.setCustomDuration(minutes: Int(newVal))
+                }
+
+                // Quick presets
+                HStack(spacing: 8) {
+                    ForEach([5, 10, 15, 30, 45, 60], id: \.self) { mins in
+                        Button {
+                            withAnimation(ZeenTheme.springSnappy) {
+                                customMinutes = Double(mins)
+                                vm.setCustomDuration(minutes: mins)
+                            }
+                        } label: {
+                            Text("\(mins)m")
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(Int(customMinutes) == mins ? .white : .white.opacity(0.60))
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 6)
+                                .background(
+                                    Int(customMinutes) == mins
+                                        ? FocusSessionType.custom.color.opacity(0.30)
+                                        : Color.white.opacity(0.06)
+                                )
+                                .clipShape(Capsule())
+                                .overlay(
+                                    Capsule()
+                                        .strokeBorder(
+                                            Int(customMinutes) == mins
+                                                ? FocusSessionType.custom.color.opacity(0.50)
+                                                : Color.clear,
+                                            lineWidth: 1
+                                        )
+                                )
                         }
                     }
                 }

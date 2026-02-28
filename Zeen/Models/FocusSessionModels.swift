@@ -6,6 +6,7 @@ enum FocusSessionType: String, CaseIterable, Identifiable {
     case reading = "Reading"
     case creative = "Creative"
     case meditation = "Meditation"
+    case custom = "Custom"
 
     var id: String { rawValue }
 
@@ -15,6 +16,7 @@ enum FocusSessionType: String, CaseIterable, Identifiable {
         case .reading:    return "book"
         case .creative:   return "paintbrush"
         case .meditation: return "leaf"
+        case .custom:     return "slider.horizontal.3"
         }
     }
 
@@ -24,6 +26,7 @@ enum FocusSessionType: String, CaseIterable, Identifiable {
         case .reading:    return Color(red: 0.26, green: 0.57, blue: 1.0)
         case .creative:   return Color(red: 0.98, green: 0.58, blue: 0.32)
         case .meditation: return Color(red: 0.35, green: 0.80, blue: 0.65)
+        case .custom:     return Color(red: 0.75, green: 0.50, blue: 1.0)
         }
     }
 
@@ -33,6 +36,7 @@ enum FocusSessionType: String, CaseIterable, Identifiable {
         case .reading:    return 20
         case .creative:   return 30
         case .meditation: return 10
+        case .custom:     return 15
         }
     }
 

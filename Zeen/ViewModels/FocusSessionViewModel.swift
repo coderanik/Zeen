@@ -47,6 +47,14 @@ final class FocusSessionViewModel: ObservableObject {
         remainingTime = type.defaultDuration
     }
 
+    /// Sets a custom duration in minutes (only when idle and custom type selected).
+    func setCustomDuration(minutes: Int) {
+        guard state == .idle, selectedType == .custom else { return }
+        let clamped = max(1, min(120, minutes))
+        totalDuration = TimeInterval(clamped * 60)
+        remainingTime = totalDuration
+    }
+
     func start() {
         state = .running
         startTimer()
