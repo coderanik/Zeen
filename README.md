@@ -195,23 +195,16 @@ Each signal is recorded per-hour for the **Timeline** chart and aggregated daily
 ---
 ## 📸 Screenshots
 
-| Onboarding | Home/Today | Focus Picker |
+| Onboarding | Home/Today | Focus Timer |
 | :---: | :---: | :---: |
 | <img src="Screenshots/welcome.png" width="250"> | <img src="Screenshots/today.png" width="250"> | <img src="Screenshots/focus_picker.png" width="250"> |
 
-| Focus Timer | Timeline | Weekly Summary |
+| Timeline | Weekly Summary 1.0 | Weekly Summary 2.0 |
 | :---: | :---: | :---: |
 | <img src="Screenshots/focus_timer.png" width="250"> | <img src="Screenshots/timeline.png" width="250"> | <img src="Screenshots/weekly_1.png" width="250"> |
 
-| Weekly Details | Settings Overview | Privacy & Data |
+| Settings Overview 1.0 | Settings Overview 2.0 | Profile |
 | :---: | :---: | :---: |
 | <img src="Screenshots/weekly_2.png" width="250"> | <img src="Screenshots/settings_1.png" width="250"> | <img src="Screenshots/settings_2.png" width="250"> |
 
-| Profile & Goals | | |
-| :---: | :---: | :---: |
-| <img src="Screenshots/profile.png" width="250"> | | |
-
-
-## 📝 License
-
-Built for the Swift Student Challenge 2026. Made with ❤️ by [Anik](https://github.com/coderanik).
+**Built for the Swift Student Challenge 2026. Made with ❤️ by [Anik](https://github.com/coderanik).**
