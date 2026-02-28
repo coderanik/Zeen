@@ -193,7 +193,25 @@ Each signal is recorded per-hour for the **Timeline** chart and aggregated daily
 > **Note**: Zeen uses live behavioral tracking via `ScenePhase` and `UNUserNotificationCenter`. The drift score starts at 0 and builds up as you use your phone — switch between apps, receive notifications, and take focus breaks to see the score respond in real time. A `MockDataProvider` is retained for unit testing.
 
 ---
+## 📸 Screenshots
+
+| Onboarding | Home/Today | Focus Picker |
+| :---: | :---: | :---: |
+| <img src="Screenshots/welcome.png" width="250"> | <img src="Screenshots/today.png" width="250"> | <img src="Screenshots/focus_picker.png" width="250"> |
+
+| Focus Timer | Timeline | Weekly Summary |
+| :---: | :---: | :---: |
+| <img src="Screenshots/focus_timer.png" width="250"> | <img src="Screenshots/timeline.png" width="250"> | <img src="Screenshots/weekly_1.png" width="250"> |
+
+| Weekly Details | Settings Overview | Privacy & Data |
+| :---: | :---: | :---: |
+| <img src="Screenshots/weekly_2.png" width="250"> | <img src="Screenshots/settings_1.png" width="250"> | <img src="Screenshots/settings_2.png" width="250"> |
+
+| Profile & Goals | | |
+| :---: | :---: | :---: |
+| <img src="Screenshots/profile.png" width="250"> | | |
+
 
 ## 📝 License
 
-Built for the Swift Student Challenge 2025. Made with ❤️ by [Anik](https://github.com/coderanik).
+Built for the Swift Student Challenge 2026. Made with ❤️ by [Anik](https://github.com/coderanik).
